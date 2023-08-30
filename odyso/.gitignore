@@ -1,4 +1,3 @@
 # Ignore python files
 __pycache__
-.pg_service.conf
-.my_pgpass
+.env

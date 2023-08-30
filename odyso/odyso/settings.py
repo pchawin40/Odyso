@@ -10,17 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
+
+# import python-decouple
+from decouple import config, Csv, AutoConfig
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+config = AutoConfig(search_path=BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@%x$t3+)qgx^pf*+v_=2b2*-u1fg$1k(u#^)&gtn*lyash@lfm'
+SECRET_KEY = 'django-insecure-da3^a)y+2%%_80l#gtsp6a4+a4)uhjvvdu!4mr+%l0_zncodhb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -73,22 +79,15 @@ WSGI_APPLICATION = 'odyso.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# PostgreSQL connection settings
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'econindicatordb',
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD')
-#     }
-# }
-
+# Allow postgresql connection
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'odyso_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
