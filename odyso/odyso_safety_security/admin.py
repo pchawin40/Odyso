@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import SafetyRoutes
 
-# Register your models here.
+# register safety & security model
+admin.site.register(SafetyRoutes)

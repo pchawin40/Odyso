@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'odyso_recommendations',
     'odyso_safety_security',
-    'odyso_itineraries'
+    'odyso_itineraries',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
