@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'odyso_recommendations',
+    'odyso_safety_security',
+    'odyso_itineraries'
 ]
 
 MIDDLEWARE = [
