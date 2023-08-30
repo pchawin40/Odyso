@@ -1,3 +1,8 @@
-from django.shortcuts import render
+# odyso_recommendations/views.py
+from rest_framework import generics
+from .models import Recommendations
+from .serializers import RecommendationsSerializer
 
-# Create your views here.
+class RecommendationsListCreateAPIView(generics.ListCreateAPIView):
+  queryset = Recommendations.objects.all()
+  serializer_class = RecommendationsSerializer
