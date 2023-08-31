@@ -14,6 +14,11 @@ Table Recommendations {
 """
 # creating recommendation model
 class Recommendations(models.Model):
+  # set up meta...
+  class Meta:
+    # to specifical plural form to use in admin interface
+    verbose_name_plural = "Recommendations"
+  
   RECOMMENDATION_TYPES = [
     ('destination', 'Destination'),
     ('activity', 'Activity'),

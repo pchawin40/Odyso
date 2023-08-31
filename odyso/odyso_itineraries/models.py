@@ -15,6 +15,11 @@ from django.conf import settings
 
 # creating itineraries model
 class Itineraries(models.Model):
+  # set up meta...
+  class Meta:
+    # to specifical plural form to use in admin interface
+    verbose_name_plural = "Itineraries"
+  
   user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
   title = models.CharField(max_length = 255) # VARCHAR is CharField 
   description = models.TextField()
