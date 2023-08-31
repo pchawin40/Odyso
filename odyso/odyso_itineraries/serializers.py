@@ -4,5 +4,5 @@ from .models import Itineraries
 
 class ItinerariesSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Recommendations
+    model = Itineraries
     fields = '__all__'

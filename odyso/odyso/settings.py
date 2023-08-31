@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'odyso_recommendations',
     'odyso_safety_security',
     'odyso_itineraries',
-    'rest_framework'
+    'rest_framework',
+    # 'rest_framework.authtoken' # provide authentication token
 ]
 
 MIDDLEWARE = [
@@ -138,7 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Set permissions for authenticated users only
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }

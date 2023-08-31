@@ -21,7 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/token/', include('rest_framework.authtoken.urls')),
     path('api/recommendations/', include('odyso_recommendations.urls')), # recommendation url
+    path('api/itineraries/', include('odyso_itineraries.urls')), # itineraries url
+    path('api/safety/', include('odyso_safety_security.urls')), # safety url
 ]
 
 if settings.DEBUG:

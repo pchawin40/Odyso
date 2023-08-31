@@ -5,5 +5,5 @@ from .models import SafetyRoutes
 
 class SafetyRoutesSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Recommendations
+    model = SafetyRoutes
     fields = '__all__'
