@@ -1,3 +1,8 @@
-from django.shortcuts import render
+# odyso_itineraries/views.py
+from rest_framework import generics
+from .models import Recommendations
+from .serializers import ItinerariesSerializer
 
-# Create your views here.
+class ItinerariesListCreateAPIView(generics.ListCreateAPIView):
+  queryset = Itineraries.objects.all()
+  serializer_class = ItinerariesSerializer
