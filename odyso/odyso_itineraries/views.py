@@ -16,3 +16,10 @@ class UserItinerariesListAPIView(generics.ListAPIView):
   # retrieving query
   def get_queryset(self):
     return Itineraries.objects.filter(user=self.request.user)
+
+# for obtaining query of a specific itinerary by its id
+class ItinerariesRetrieveUpdateDestroyAPIVIew(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Itineraries.objects.all()
+  serializer_class = ItinerariesSerializer
+  
+  lookup_field = 'pk'

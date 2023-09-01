@@ -1,3 +1,5 @@
+# odyso/urls.py
+
 """
 URL configuration for odyso project.
 

@@ -1,3 +1,5 @@
+# odyso/settings.py
+
 """
 Django settings for odyso project.
 
