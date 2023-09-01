@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'odyso_safety_security',
     'odyso_itineraries',
     'rest_framework',
-    # 'rest_framework.authtoken' # provide authentication token
+    'rest_framework.authtoken' # provide authentication token
 ]
 
 MIDDLEWARE = [
@@ -143,6 +143,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly'
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    )
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
+    ),
 }
