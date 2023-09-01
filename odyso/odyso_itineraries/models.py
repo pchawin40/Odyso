@@ -1,5 +1,8 @@
+# odyso_itineraries/models.py
+
 from django.db import models
 from django.conf import settings
+from django.contrib.auth import get_user_model
 
 """
   Table Itineraries {
@@ -13,6 +16,8 @@ from django.conf import settings
 }
 """
 
+User = get_user_model()
+
 # creating itineraries model
 class Itineraries(models.Model):
   # set up meta...
@@ -20,7 +25,7 @@ class Itineraries(models.Model):
     # to specifical plural form to use in admin interface
     verbose_name_plural = "Itineraries"
   
-  user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   title = models.CharField(max_length = 255) # VARCHAR is CharField 
   description = models.TextField()
   start_date = models.DateField()
