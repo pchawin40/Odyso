@@ -2,7 +2,9 @@
 from rest_framework import generics
 from .models import Itineraries
 from .serializers import ItinerariesSerializer
+from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 class ItinerariesListCreateAPIView(generics.ListCreateAPIView):
   queryset = Itineraries.objects.all()
@@ -23,3 +25,11 @@ class ItinerariesRetrieveUpdateDestroyAPIVIew(generics.RetrieveUpdateDestroyAPIV
   serializer_class = ItinerariesSerializer
   
   lookup_field = 'pk'
+
+  # for sending back message after delete request
+  def destroy(self, request, *args, **kwargs):
+    instance = self.get_object()
+    self.perform_destroy(instance)
+    
+    # customized message response
+    return Response({"message": "Successfully deleted!"}, status=status.HTTP_200_OK)
